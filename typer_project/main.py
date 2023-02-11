@@ -13,15 +13,15 @@ def main(extension: str,
     """
 
     if directory:
-        directory = Path(directory) # convertion du chemin en objet pathlib
+        directory = Path(directory)                                                     # Convert path into pathlib path
     else:
-        directory = Path.cwd()      # currrent working directory
+        directory = Path.cwd()                                                          # currrent working directory
 
     if not directory.exists():
         typer.secho(f"Le dossier '{directory}' n'existe pas.", fg=typer.colors.RED)
         raise typer.Exit()
 
-    temp_files = directory.rglob(f"*.{extension}")                              # rglob permet de chercher dans le dossier et dans les sous-dossiers (récursif) - Attention Generator
+    temp_files = directory.rglob(f"*.{extension}")                                      # rglob allow to search in the folder as well as all sub-folder (cascade) - Careful, return object Generator
     files = [i for i in temp_files]
 
     if delete :
