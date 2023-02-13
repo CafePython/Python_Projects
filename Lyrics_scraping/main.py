@@ -85,9 +85,9 @@ def extract_and_get_all_words():
 def get_all_words():
     with open("data_michel_sardou.json", "r") as f:
         liste = json.load(f)
-        counter = collections.Counter([w for w in liste if len(w) > 7])
+        counter = collections.Counter([w for w in liste if len(w) > 5])
         most_common_words = counter.most_common(15)
         pprint(most_common_words)
 
-extract_and_get_all_words()
-#get_all_words()
+#extract_and_get_all_words()
+get_all_words()
